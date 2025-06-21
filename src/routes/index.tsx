@@ -35,7 +35,6 @@ export default component$(() => {
         <button onClick$={()=>changePokemonId(1)} class="btn-primary mr-2">Siguiente</button>
         <button onClick$={()=>showBackImage.value = !showBackImage.value} class="btn-primary mr-2">Voltear</button>
         <button onClick$={()=>isPokemonVisible.value = !isPokemonVisible.value} class="btn-primary">Revelar</button>
-
       </div>
     </>
   );

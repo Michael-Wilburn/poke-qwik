@@ -1,8 +1,10 @@
-import { component$, Slot } from '@builder.io/qwik';
+import { component$, Slot} from '@builder.io/qwik';
 import Navbar from "~/components/shared/navbar/navbar"
+// import styles from "./styles.css?inline"
  
 export default component$(() => {
-  return (
+    // useStyles$(styles);
+    return (
     <>
         <Navbar />
         <main class="flex flex-col items-center justify-center">
@@ -11,3 +13,4 @@ export default component$(() => {
     </>
   );
 });
+

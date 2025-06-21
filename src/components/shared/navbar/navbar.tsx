@@ -5,7 +5,7 @@ import { QwikLogo } from "~/components/icons/qwik";
 export default component$(()=>{
     return(
         <header>
-            <div class="flex flex-row justify-between items-center p-8">
+            <div class="flex flex-row justify-between items-center p-10">
                 <div>
                     <a href="/">
                         <QwikLogo height={50} />

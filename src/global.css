@@ -1,3 +1,18 @@
 @import "tailwindcss";
 
-
+.btn-primary {
+    font-weight: 700;              /* font-bold */
+    padding-top: 0.5rem;           /* py-2 */
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;            /* px-4 */
+    padding-right: 1rem;
+    border-radius: 0.25rem;        /* rounded */
+    background-color: #9810fa;     /* bg-purple-600 */
+    color: #ffffff;                /* text-white */
+    cursor: pointer;              /* cursor-pointer */
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #852dcd;     /* hover:bg-purple-700 */
+  }

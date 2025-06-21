@@ -1,4 +1,5 @@
 import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import { QwikLogo } from "~/components/icons/qwik";
 
 
@@ -7,13 +8,16 @@ export default component$(()=>{
         <header>
             <div class="flex flex-row justify-between items-center p-10">
                 <div>
-                    <a href="/">
+                    <Link href="/">
                         <QwikLogo height={50} />
-                    </a>
+                    </Link>
                 </div>
-                <ul>
+                <ul class="flex flex-row justify-between items-center">
+                    <li class="mr-2">
+                        <Link href="/pokemons/list-ssr/">SSR-List</Link>
+                    </li>
                     <li>
-                        <a href="\">Inicio</a>
+                        <Link href="/pokemons/list-client/">Client-List</Link>
                     </li>
                 </ul>
             </div>

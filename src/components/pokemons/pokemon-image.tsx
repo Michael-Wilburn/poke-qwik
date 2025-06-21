@@ -22,7 +22,7 @@ export const PokemonImage = component$(({id, size = 100, backImage = false, isVi
                width={size}  
                height={300}
                onLoad$={()=>imageLoaded.value = true}
-               class={[{'hidden' : !imageLoaded.value, 'brightness-0':!isVisible},'transition-all']}
+               class={[{'hidden' : !imageLoaded.value, 'brightness-0':isVisible},'transition-all']}
             />
         </div>
     )

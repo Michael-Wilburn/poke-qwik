@@ -43,8 +43,11 @@ export default component$(() => {
             ))}
         </div>
         <Modal>
-            <span>Hola Mundo!</span>
-            <PokemonImage id={1} />
+            <div q:slot='title'>Nombre del Pokemon</div>
+            <div q:slot='content' class="flex flex-col justify-center items-center">
+                <PokemonImage id={1} />
+                <span>Preguntandole a ChatGPT</span>
+            </div>
         </Modal>
         </>
   )

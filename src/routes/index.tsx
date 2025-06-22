@@ -1,18 +1,13 @@
-import { $, component$, useContext} from "@builder.io/qwik";
+import { $, component$} from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { PokemonImage } from "~/components/pokemons/pokemon-image";
-import { PokemonGameContext } from "~/context";
+
 
 export default component$(() => {
   const nav = useNavigate();
 
-  // const pokemonId = useSignal(1);
-  // const showBackImage = useSignal(false);
-  // const isPokemonVisible = useSignal(false);
-
-  const pokemonGame = useContext(PokemonGameContext);
-
+ 
 
   const changePokemonId = $((value: number) => {
     if((pokemonGame.pokemonId + value) <= 0 || pokemonGame.pokemonId >=1025){

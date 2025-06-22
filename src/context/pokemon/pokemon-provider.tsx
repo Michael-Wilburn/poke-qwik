@@ -1,4 +1,4 @@
-import { component$, Slot,useContextProvider, useStore} from "@builder.io/qwik";
+import { component$, Slot,useContextProvider, useStore, useVisibleTask$} from "@builder.io/qwik";
 import { PokemonGameContext,PokemonListContext, type PokemonGameState, type PokemonListState } from '~/context';
 
 
@@ -16,6 +16,19 @@ export const PokemonProvider = component$(() => {
         pokemons:[],
     })
     useContextProvider(PokemonListContext, pokemonList)
+
+    useVisibleTask$(()=>{
+        //Leer de local storage
+        console.log('Primer visible task');
+        
+    })
+    useVisibleTask$(({track})=>{
+        track(()=>[pokemonGame.isPokemonVisible,pokemonGame.pokemonId,pokemonGame.showBackImage])
+        localStorage.setItem('pokemon-game',JSON.stringify(pokemonGame));
+        
+    })
+
+
   return <Slot/>
 });
 

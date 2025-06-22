@@ -9,11 +9,6 @@ export const usePokemonList = routeLoader$<SmallPokemon[]>(async({query, redirec
     if (isNaN(offset)){ throw redirect(301, pathname)}
 
     return await getSmallPokemons(offset)
-
-//     const resp = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10&offset=${offset}`);
-//     const data = await resp.json() as PokemonListResponse
-    
-//     return data.results
 })
 
 export default component$(() => {

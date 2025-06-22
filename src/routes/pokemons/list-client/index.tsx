@@ -54,7 +54,7 @@ export default component$(() => {
         </div>
         <div class="grid sm:grid-col-2 md:grid-cols-5 xl:grid-cols-7 mt-5">
             {pokemonState.pokemons.map((pokemon)=>(
-            <div key={pokemon.name} class="m-5 flex flex-col justify-center items-center">
+            <div key={pokemon.id} class="m-5 flex flex-col justify-center items-center">
                 <PokemonImage id={pokemon.id} />
                 <span class="capitalize">{pokemon.name}</span>
             </div>

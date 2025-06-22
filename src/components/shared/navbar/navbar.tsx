@@ -16,8 +16,11 @@ export default component$(()=>{
                     <li class="mr-2">
                         <Link href="/pokemons/list-ssr/">SSR-List</Link>
                     </li>
-                    <li>
+                    <li class="mr-2">
                         <Link href="/pokemons/list-client/">Client-List</Link>
+                    </li>
+                    <li class="mr-2">
+                        <Link href="/counter/">Counter</Link>
                     </li>
                 </ul>
             </div>

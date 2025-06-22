@@ -1,6 +1,6 @@
 import { component$, Slot, useContextProvider, useStore} from '@builder.io/qwik';
 import Navbar from "~/components/shared/navbar/navbar"
-import { PokemonGameContext, type PokemonGameState } from '~/context';
+import { PokemonGameContext,PokemonListContext, type PokemonGameState, type PokemonListState } from '~/context';
 // import styles from "./styles.css?inline"
 
 
@@ -15,6 +15,13 @@ export default component$(() => {
 
     useContextProvider(PokemonGameContext, pokemonGame)
 
+    const pokemonList = useStore<PokemonListState>({
+        currentPage: 0,
+        isLoading:false,
+        pokemons:[],
+    })
+
+    useContextProvider(PokemonListContext, pokemonList)
     return (
     <>
         <Navbar />

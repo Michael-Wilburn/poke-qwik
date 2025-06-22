@@ -1,4 +1,4 @@
-import { component$, useSignal, useTask$ } from "@builder.io/qwik";
+import { component$, useComputed$, useSignal, useTask$ } from "@builder.io/qwik";
 
 interface Props {
     id: number | string;
@@ -13,11 +13,18 @@ export const PokemonImage = component$(({id, size = 100, backImage = false, isVi
         track(()=> id);
         imageLoaded.value = false
     })
+
+    const imageUrl = useComputed$(()=>{
+        return backImage 
+            ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`
+            : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    })
+
     return(
         <div class="flex items-center justify-center" style={{width:`${size}px`,height:`${size}px`}}>
             {!imageLoaded.value &&<span>Cargando...</span>}
             <img 
-               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon${backImage?"/back/":"/"}${id}.png`} 
+               src={imageUrl.value} 
                alt="Pokemon Sprite" 
                width={size}  
                height={300}

@@ -1,16 +1,19 @@
-import { component$, Slot, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, type PropFunction, Slot, useStylesScoped$ } from '@builder.io/qwik';
 import ModalStyles from './modal.css?inline';
 
+interface Props{
+    showModal: boolean,
+    closeFn: PropFunction<() => void>
+}
 
-
-export const Modal = component$( () => {
+export const Modal = component$( ({showModal, closeFn}:Props) => {
 
     useStylesScoped$(ModalStyles);
 
     return (
         // hidden https://www.section.io/engineering-education/creating-a-modal-dialog-with-tailwind-css/
-        <div class="modal-background">
-            <div class="modal-content">
+        <div class={showModal? 'modal-background' : 'hidden'} onClick$={closeFn}>
+            <div class="modal-content" onClick$={(e) => e.stopPropagation()}>
                 <div class="mt-3 text-center">
                     <h3 class="modal-title"><Slot name='title'/></h3>
                     <div class="mt-2 px-7 py-3">
@@ -23,6 +26,7 @@ export const Modal = component$( () => {
                         <button
                             id="ok-btn"
                             class="modal-button"
+                            onClick$={closeFn}
                         >
                             Cerrar
                         </button>
